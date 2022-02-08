@@ -36,7 +36,7 @@ class Calculator extends React.Component {
     ));
     return (
       <div className="calculator">
-        <p className="output">{!info.total ? 0 : info.total}</p>
+        <p className="output">{info.next ? info.next : nestedTernary(!info.total, 0, info.total)}</p>
         {digits}
       </div>
     );
