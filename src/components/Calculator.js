@@ -22,6 +22,7 @@ class Calculator extends React.Component {
   }
 
   render() {
+    const info = this.state;
     const operators = '÷x-+=';
     let digits = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
     digits = digits.map((digit) => (
@@ -36,7 +37,7 @@ class Calculator extends React.Component {
     ));
     return (
       <div className="calculator">
-        <p className="output">{!this.state.total ? 0 : this.state.total}</p>
+        <p className="output">{!info.total ? 0 : info.total}</p>
         {digits}
       </div>
     );
