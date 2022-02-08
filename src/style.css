@@ -41,9 +41,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding-right: 1rem;
 }
 
-.zero {
+#zero {
   grid-column: 1/3;
 }
 
