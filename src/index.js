@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import Calculator from './components/Calculator';
+import Container from './App';
 import './style.css';
 
-ReactDOM.render(<Calculator />, document.getElementById('root'));
+ReactDOM.render(<Container />, document.getElementById('root'));
