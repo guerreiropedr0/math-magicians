@@ -1,19 +1,42 @@
 import React from 'react';
 import nestedTernary from '../logic/helper';
+import calculate from '../logic/calculate';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      total: 0,
+      next: null,
+      operation: null,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const { next, total, operation } = calculate(this.state, event.target.textContent);
+    this.setState({ next, total, operation });
+  }
+
   render() {
     const operators = '÷x-+=';
     let digits = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
     digits = digits.map((digit) => (
-      <button type="button" key={digit} id={operators.includes(digit) ? 'operators' : nestedTernary('0'.includes(digit), 'zero', null)}>
+      <button
+        type="button"
+        onClick={this.handleChange}
+        key={digit}
+        id={operators.includes(digit) ? 'operators' : nestedTernary('0'.includes(digit), 'zero', null)}
+      >
         {digit}
       </button>
     ));
     return (
       <div className="calculator">
-        <p className="output">0</p>
+        <p className="output">{!this.state.total ? 0 : this.state.total}</p>
         {digits}
       </div>
     );
