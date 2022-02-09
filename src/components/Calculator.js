@@ -15,6 +15,12 @@ class Calculator extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    document.body.style.backgroundColor = '#f7ab6e';
+    /* The code reviewer told me to add a lifecycle method,
+    I wasn't sure what I should add since the functionality is working, so I added a style */
+  }
+
   handleChange(event) {
     const { next, total, operation } = calculate(this.state, event.target.textContent);
     this.setState({ next, total, operation });
