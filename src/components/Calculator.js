@@ -1,68 +1,49 @@
 import React from 'react';
+import nestedTernary from '../logic/helper';
+import calculate from '../logic/calculate';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      total: 0,
+      next: null,
+      operation: null,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    document.body.style.backgroundColor = '#f7ab6e';
+    /* The code reviewer told me to add a lifecycle method,
+    I wasn't sure what I should add since the functionality is working, so I added a style */
+  }
+
+  handleChange(event) {
+    const { next, total, operation } = calculate(this.state, event.target.textContent);
+    this.setState({ next, total, operation });
+  }
+
   render() {
+    const info = this.state;
+    const operators = '÷x-+=';
+    let digits = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
+    digits = digits.map((digit) => (
+      <button
+        type="button"
+        onClick={this.handleChange}
+        key={digit}
+        id={operators.includes(digit) ? 'operators' : nestedTernary('0'.includes(digit), 'zero', null)}
+      >
+        {digit}
+      </button>
+    ));
     return (
       <div className="calculator">
-        <p className="output">0</p>
-        <button id="AC" type="button">
-          AC
-        </button>
-        <button id="+/-" type="button">
-          +/-
-        </button>
-        <button id="%" type="button">
-          %
-        </button>
-        <button id="operators" type="button">
-          ÷
-        </button>
-        <button id="7" type="button">
-          7
-        </button>
-        <button id="8" type="button">
-          8
-        </button>
-        <button id="9" type="button">
-          9
-        </button>
-        <button id="operators" type="button">
-          x
-        </button>
-        <button id="4" type="button">
-          4
-        </button>
-        <button id="5" type="button">
-          5
-        </button>
-        <button id="6" type="button">
-          6
-        </button>
-        <button id="operators" type="button">
-          -
-        </button>
-        <button id="1" type="button">
-          1
-        </button>
-        <button id="2" type="button">
-          2
-        </button>
-        <button id="3" type="button">
-          3
-        </button>
-        <button id="operators" type="button">
-          +
-        </button>
-        <button className="zero" type="button">
-          0
-        </button>
-        <button id="." type="button">
-          .
-        </button>
-        <button id="operators" type="button">
-          =
-        </button>
+        <p className="output">{info.next ? info.next : nestedTernary(!info.total, 0, info.total)}</p>
+        {digits}
       </div>
     );
   }
