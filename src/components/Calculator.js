@@ -16,22 +16,49 @@ const Calculator = () => {
 
   const info = state;
   const operators = '÷x-+=';
-  let digits = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
+  let digits = [
+    'AC',
+    '+/-',
+    '%',
+    '÷',
+    '7',
+    '8',
+    '9',
+    'x',
+    '4',
+    '5',
+    '6',
+    '-',
+    '1',
+    '2',
+    '3',
+    '+',
+    '0',
+    '.',
+    '=',
+  ];
   digits = digits.map((digit) => (
     <button
       type="button"
       onClick={handleChange}
       key={digit}
-      id={operators.includes(digit) ? 'operators' : nestedTernary('0'.includes(digit), 'zero', null)}
+      id={
+        operators.includes(digit) ? 'operators' : nestedTernary('0'.includes(digit), 'zero', null)
+      }
     >
       {digit}
     </button>
   ));
 
   return (
-    <div className="calculator">
-      <p className="output">{info.next ? info.next : nestedTernary(!info.total, 0, info.total)}</p>
-      {digits}
+    <div className="calculator-section">
+      <h2>Let&apos;s do some math!</h2>
+      <div className="calculator">
+        <p className="output">
+          {info.next ? info.next : nestedTernary(!info.total, 0, info.total)}
+        </p>
+        {digits}
+      </div>
     </div>
   );
 };

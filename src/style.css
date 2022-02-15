@@ -1,7 +1,7 @@
 :root {
-  --accent-color: #f5913e;
-  --primary-color: #858693;
-  --secondary-color: #e0e0e0;
+  --accent-color: #e2c044;
+  --primary-color: #587b7f;
+  --secondary-color: #393e41;
 }
 
 *,
@@ -15,33 +15,77 @@
   color: inherit;
   border: none;
   outline: none;
-  font-size: 1.5rem;
   font-family: 'Times New Roman', Times, serif;
 }
 
 body {
+  background-color: #1e2019;
+  color: #d3d0cb;
+}
+
+.navbar {
   display: flex;
-  height: 100vh;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+  font-size: 1.3rem;
+  background-color: #393e41;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links * {
+  margin: 0 0.5rem;
+}
+
+.nav-links li:nth-child(2) {
+  border-right: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+
+.nav-links li:hover {
+  color: #fbf2c0;
+  border-color: #fbf2c0;
+}
+
+.home-section {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-section h2 {
+  align-self: center;
+  margin: 0 0 1rem 0;
+}
+
+.calculator-section {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  margin: 1rem;
 }
 
 .calculator {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: 40vw;
-  height: 60vh;
+  width: 60vw;
+  height: 80vh;
   justify-items: stretch;
+  justify-self: end;
 }
 
 .output {
   grid-column: 1/5;
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: #fbf2c0;
+  color: #1e2019;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 1rem;
+  font-size: 3rem;
 }
 
 #zero {
@@ -51,31 +95,50 @@ body {
 .calculator button {
   background-color: var(--secondary-color);
   border: 1px solid #d1d1d1;
+  font-size: 2rem;
 }
 
 .calculator button:hover {
-  background-color: #d8d7d7;
+  background-color: #2b2f31;
 }
 
 .calculator button:active {
-  background-color: #c9c8c8;
+  background-color: #242729;
 }
 
 #operators {
-  background-color: var(--accent-color);
+  background-color: #505557;
 }
 
 #operators:hover {
-  background-color: #e9893a;
+  background-color: #4b5052;
 }
 
 #operators:active {
-  background-color: #db8036;
+  background-color: #414647;
+}
+
+.quote {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 600px) {
+  .navbar {
+    font-size: 1rem;
+  }
+
+  .calculator-section {
+    grid-template-columns: auto;
+    justify-items: center;
+  }
+
   .calculator {
-    width: 100vw;
-    height: 100vh;
+    margin-top: 2rem;
+    justify-self: inherit;
+    width: 80vw;
+    height: 50vh;
   }
 }
