@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar component Navbar element is in the document 1`] = `
+<h1>
+  Math Magicians
+</h1>
+`;
+
+exports[`Navbar component should click a link and change the page 1`] = `
+<div
+  class="calculator"
+  data-testid="calc"
+>
+  <p
+    class="output"
+  >
+    0
+  </p>
+  <button
+    type="button"
+  >
+    AC
+  </button>
+  <button
+    type="button"
+  >
+    +/-
+  </button>
+  <button
+    type="button"
+  >
+    %
+  </button>
+  <button
+    id="operators"
+    type="button"
+  >
+    ÷
+  </button>
+  <button
+    type="button"
+  >
+    7
+  </button>
+  <button
+    type="button"
+  >
+    8
+  </button>
+  <button
+    type="button"
+  >
+    9
+  </button>
+  <button
+    id="operators"
+    type="button"
+  >
+    x
+  </button>
+  <button
+    type="button"
+  >
+    4
+  </button>
+  <button
+    type="button"
+  >
+    5
+  </button>
+  <button
+    type="button"
+  >
+    6
+  </button>
+  <button
+    id="operators"
+    type="button"
+  >
+    -
+  </button>
+  <button
+    type="button"
+  >
+    1
+  </button>
+  <button
+    type="button"
+  >
+    2
+  </button>
+  <button
+    type="button"
+  >
+    3
+  </button>
+  <button
+    id="operators"
+    type="button"
+  >
+    +
+  </button>
+  <button
+    id="zero"
+    type="button"
+  >
+    0
+  </button>
+  <button
+    type="button"
+  >
+    .
+  </button>
+  <button
+    id="operators"
+    type="button"
+  >
+    =
+  </button>
+</div>
+`;
