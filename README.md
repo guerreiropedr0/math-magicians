@@ -10,7 +10,7 @@ This website is for Math lovers, it contains Mathematicians quotes and a calcula
 
 ## Live Server
 
-In the following link, you can view the [Math Magicians website](https://guerreiropedr0-math-magicians.netlify.app)
+In the following link, you can view the [Math Magicians website Netlify](https://guerreiropedr0-math-magicians.netlify.app) or [Math Magicians website Heroku](https://guerreiropedr0-math-magicians.herokuapp.com/)
 
 ## Built With
 
